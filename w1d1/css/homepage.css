@@ -1,0 +1,17 @@
+body{
+    background-color: lightgrey;
+}
+#footer1{
+
+    float: left;
+}
+
+#footer2{
+    float: right;
+}
+
+.footer{
+    display: inline-block;
+    width:100%;
+    background-color: greenyellow;
+}

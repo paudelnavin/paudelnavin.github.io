@@ -1,0 +1,29 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.about{
+    background-color: lightgrey;
+}
+.heading{
+    color: darkblue;
+    font-family: "Times New Roman",Times,Serif;
+}
+.highlight a{
+    text-decoration: none;
+}
+.highlight a:hover{
+    text-decoration: underline;
+    color:red;
+}
+.block li::first-letter{
+    color: #ff0000;
+    font-size: xx-large;
+}
+.name{
+    font-style: italic;
+    font-weight: bold;
+}
+.skills{
+    color: darkcyan;
+    font-style: italic;
+}
