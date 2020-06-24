@@ -22,10 +22,10 @@ h1{
 }
 
 ul.ingredients {
-    list-style-image: url("../img/pie_icon.gif");
+    list-style-image: url("../img/pie_bullet.png");
 }
 ul.direction {
-    list-style-image: url('../img/pie_icon.gif');
+    list-style-image: url('../img/pie_bullet.png');
 }
 .pie{
     list-style-type: none;
