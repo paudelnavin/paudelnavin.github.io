@@ -23,24 +23,56 @@ header {
     color: black;
     text-decoration: none;
 }
-.content{
-    display: flex;
-    flex-direction: row;
-}
+
 .column1{
     background-color: gray;
     padding-bottom: 250px;
-    width: 25%;
 }
 .column2{
     background-color: darkgray;
-    /*padding-bottom: 250px;*/
-    width: 50%;
+    padding-bottom: 250px;
 }
 .column3{
     background-color: lightgrey;
-    /*padding-bottom: 250px;*/
-    width: 25%;
+    padding-bottom: 250px;
+}
+
+@media screen and (min-width: 600px){
+    .content {
+        display: flex;
+    }
+    .column1{
+        width: 25%;
+        order: 1;
+    }
+    .column2{
+        width: 50%;
+        order: 2;
+    }
+    .column3 {
+        width: 25%;
+        order: 3;
+    }
+}
+
+@media screen and (max-width: 599px) {
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .column1 {
+        width: 50%;
+        order: 1;
+    }
+    .column2 {
+        width: 100%;
+        order:3;
+    }
+    .column3{
+        width: 50%;
+        order:2;
+    }
+
 }
 
 footer {
@@ -49,78 +81,4 @@ footer {
     padding: 20px 0px;
     text-align: center;
     color:white
-}
-
-/*@media screen and (max-width: 750px) {*/
-/*    .column1{*/
-/*        background-color: gray;*/
-/*        padding-bottom: 250px;*/
-/*        width: 50%;*/
-/*    }*/
-/*    .column2{*/
-/*        background-color: darkgray;*/
-/*        !*padding-bottom: 250px;*!*/
-/*        width: 100%;*/
-/*    }*/
-/*    .column3{*/
-/*        background-color: lightgrey;*/
-/*        !*padding-bottom: 250px;*!*/
-/*        width: 50%;*/
-/*    }*/
-/*}*/
-
-@media screen and (max-width:600px) {
-
-    .column1 {
-        width: 50%;
-    }
-    .column3 {
-        width: 50%;
-    }
-    .column2 {
-        width:100%;
-    }
-}
-@media screen and (min-width: 600px){
-    #columns > .box-content {
-        display: flex;
-    }
-    #col1 {
-        flex: 1;
-        order: 1;
-    }
-    #col2 {
-        flex: 2;
-        order:2;
-    }
-    #col3{
-        flex: 1;
-        order:3;
-    }
-}
-
-@media screen and (max-width: 599px) {
-
-    #grid {
-        display: grid;
-        grid-template-rows: 80px 50px 600px 80px;
-    }
-
-    #columns > .box-content {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    #col1 {
-        width: 300px;
-        order: 1;
-    }
-    #col2 {
-        width: 600px;
-        order:3;
-    }
-    #col3{
-        width: 300px;
-        order:2;
-    }
-
 }
