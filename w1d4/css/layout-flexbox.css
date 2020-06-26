@@ -17,6 +17,7 @@ header {
     color: white;
     padding: 14px 16px;
     font-size: 20px;
+    border: 2px solid black;
 }
 .menu > div:hover {
     background-color: #ddd;
