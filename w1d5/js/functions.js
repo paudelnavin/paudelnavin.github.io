@@ -1,10 +1,10 @@
-//myFunctionTest implemented as described
+//1. myFunctionTest implemented as described
 function myFunctionTest(exprected, get) {
     if (exprected == get()) return 'TEST SUCCEEDED';
     else return 'TEST FAILED. Expected ' + exprected + ' found ' + get();
 }
 
-// Define a function max() that takes two numbers as arguments and returns the largest of them. Use the
+// 2. Define a function max() that takes two numbers as arguments and returns the largest of them. Use the
 // if-then-else construct available in Javascript.
 function max(num1, num2) {
     if(num1>num2)
@@ -13,7 +13,7 @@ function max(num1, num2) {
         return num2;
 }
 
-// Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them.
+// 3. Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them.
 function maxOfThree(num1, num2, num3) {
     let max=num1;
     if(max<num2)
@@ -24,7 +24,7 @@ function maxOfThree(num1, num2, num3) {
     return max;
 }
 
-// Write a function isVowel() that takes a character (i.e. a string of length 1) and returns true if
+// 4. Write a function isVowel() that takes a character (i.e. a string of length 1) and returns true if
 // it is a vowel, false otherwise.
 function isVowel(character){
     if(character === ('A' || 'E' || 'I' || 'O' || 'U').toLowerCase())
@@ -34,7 +34,7 @@ function isVowel(character){
 }
 
 
-// Define a function sum() and a function multiply() that sums and multiplies (respectively) all the
+// 5. Define a function sum() and a function multiply() that sums and multiplies (respectively) all the
 // numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4])
 // should return 24.
     function sum(numberArray) {
@@ -53,7 +53,7 @@ function isVowel(character){
         return total;
     }
 
-// Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar")
+// 6. Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar")
 // should return the string "ratset gaj".
 function reverse(string){
     let reverseString="";
@@ -64,7 +64,7 @@ function reverse(string){
 }
 
 
-// Write a function findLongestWord() that takes an array of words and returns the length of the longest one.
+// 7. Write a function findLongestWord() that takes an array of words and returns the length of the longest one.
 function findLongestWord(words){
     let longestWord;
     for(let i=0; i<words.length-1; i++){
@@ -77,7 +77,7 @@ function findLongestWord(words){
 }
 
 
-// Write a function filterLongWords() that takes an array of words and an integer i and returns the array
+// 8. Write a function filterLongWords() that takes an array of words and an integer i and returns the array
 // of words that are longer than i.
 function filterLongWords(words, i){
     for(let n=0; n<words.length; n++){
@@ -88,12 +88,12 @@ function filterLongWords(words, i){
     return words;
 }
 
-// Modify the jsfiddle on the map/filter/reduce slide as follows:
+// 9. Modify the jsfiddle on the map/filter/reduce slide as follows:
 // a) multiply each element by 10;
 // b) return array with all elements equal to 3;
 // c) return the product of all elements;
 
-//using map to change all element of an array
+//9a. using map to change all element of an array
 function  multiplyBy10(a) {
 
     return a.map(function (elem, i, array) {
@@ -102,17 +102,17 @@ function  multiplyBy10(a) {
 
 }
 
-//using filter to filter through an array
+// 9b. using filter to filter through an array
 function allElemsEqualTo3(a) {
     return a.filter(function (elem, i, array) {
         return elem === 3;
     });
 }
 
-//using reduce to add all element of an array
+// 9c. using reduce to add all element of an array
 function productOfAllElements(a) {
     return a.reduce(function (prevValue, elem, i, array) {
-        return prevValue + elem;
+        return prevValue * elem;
     });
 }
 
@@ -146,17 +146,17 @@ console.log("Expected output of findLongestWord(['cow','bird', 'as', 'elephant']
 }));
 
 console.log("Expected output of filterLongWords(['cow','bird', 'as', 'elephant'], 3) is bird,elephant and  " + myFunctionTest(['bird','elephant'], function () {
-    return filterLongWords(['cow','bird', 'as', 'elephant'], 3);
+    return filterLongWords(['cow','bird', 'as', 'elephant'], 3).toString();
 }));
 
 console.log("Expected output of map([1,3,5,3,3]) is 10,30,50,30,30 and  " + myFunctionTest([10, 30, 50, 30, 30], function () {
-    return multiplyBy10([1, 3, 5, 3, 3]);
+    return multiplyBy10([1, 3, 5, 3, 3]).toString();
 }));
 
 console.log("Expected output of filter([1,3,5,3,3]) is 3,3,3 and  " + myFunctionTest([3, 3, 3], function () {
-    return allElemsEqualTo3([1, 3, 5, 3, 3]);
+    return allElemsEqualTo3([1, 3, 5, 3, 3]).toString();
 }));
 
-console.log("Expected output of reduce([1,3,5,3,3]) is and 15 " + myFunctionTest(15, function () {
-    return productOfAllElements([1, 3, 5, 3, 3]);
+console.log("Expected output of reduce([1,3,2,3]) is and 18 " + myFunctionTest(18, function () {
+    return productOfAllElements([1, 3, 2, 3]);
 }));
