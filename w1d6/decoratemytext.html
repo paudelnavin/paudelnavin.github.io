@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)http://mumstudents.org/cs472/2016-10-MZ/Labs/6/decoratemytext.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		<title>Text Decorator</title>
+		<link href="./textdecorator_files/decoratemytext.css" type="text/css" rel="stylesheet">
+
+		<!--
+		This is a widely-used JavaScript library named jQuery that has
+		many useful functions which we need.
+		Please don't remove this link or change its URL; leave it as-is!
+		-->
+		<script src="./textdecorator_files/jquery.min.js" type="text/javascript"></script><script data-dapp-detection="">
+(function() {
+  let alreadyInsertedMetaTag = false
+
+  function __insertDappDetected() {
+    if (!alreadyInsertedMetaTag) {
+      const meta = document.createElement('meta')
+      meta.name = 'dapp-detected'
+      document.head.appendChild(meta)
+      alreadyInsertedMetaTag = true
+    }
+  }
+
+  if (window.hasOwnProperty('web3')) {
+    // Note a closure can't be used for this var because some sites like
+    // www.wnyc.org do a second script execution via eval for some reason.
+    window.__disableDappDetectionInsertion = true
+    // Likely oldWeb3 is undefined and it has a property only because
+    // we defined it. Some sites like wnyc.org are evaling all scripts
+    // that exist again, so this is protection against multiple calls.
+    if (window.web3 === undefined) {
+      return
+    }
+    __insertDappDetected()
+  } else {
+    var oldWeb3 = window.web3
+    Object.defineProperty(window, 'web3', {
+      configurable: true,
+      set: function (val) {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        oldWeb3 = val
+      },
+      get: function () {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        return oldWeb3
+      }
+    })
+  }
+})()</script>
+
+		<!-- link to your script file here -->
+	    <script type="text/javascript" src="./DecorateMyText/js/decoratemytext.js"></script>
+		
+	</head>
+
+	<body id="background">
+		<h1>Text Decorator</h1>
+		
+		<div>
+			<img src="./textdecorator_files/decorated.gif" alt="very decorated!">
+		</div>
+
+		<!-- Your UI controls go here -->
+<!--		<label for="text">Text</label>-->
+		<fieldset>
+			<legend>Text</legend>
+			<textarea id="text" name="text" rows="4" cols="30" placeholder="Enter your text here..."></textarea>
+		</fieldset>
+		<fieldset>
+			<legend>Decoration</legend>
+			<div>
+				<button id="decoration">Bigger Decorations!</button>
+			</div>
+			<div>
+				<input type="checkbox" id="bling" name="bling" value="Bling">
+				<label for="bling">Bling</label>
+			</div>
+			<div>
+				<button id="igpay">Igpay Atinlay</button>
+				<button id="malkovitch">Malkovitch</button>
+			</div>
+
+		</fieldset>
+
+
+</body></html>
