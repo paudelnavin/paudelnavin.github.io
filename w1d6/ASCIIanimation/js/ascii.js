@@ -3,11 +3,10 @@
     "use strict"
 
     window.onload = function(){
-        document.getElementById("start").onclick = startClickHandler;
-        document.getElementById("stop").onclick = stopClickHandler;
         document.getElementById("animation").onchange = getAnimationPage;
         document.getElementById("fontsize").onchange = setAnimationSize;
-
+        document.getElementById("start").onclick = startClickHandler;
+        document.getElementById("stop").onclick = stopClickHandler;
     };
 
     function getAnimationPage(){
@@ -23,9 +22,6 @@
             v.innerHTML = BIKE;
         }else if(e.value === "Dive"){
             v.innerHTML = DIVE;
-        }else if(e.value === "Custom"){
-            v.innerHTML = CUSTOM;
-            v.readOnly = false;
         }
     }
 
