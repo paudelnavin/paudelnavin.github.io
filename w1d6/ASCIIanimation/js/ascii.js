@@ -53,6 +53,7 @@
     function startClickHandler(){
         let v = document.getElementById("text-area");
         let arr = v.innerHTML.split("=====");
+        console.log(arr);
         let s;
         if(document.getElementById("turbo").checked){
             s = 50;
@@ -72,6 +73,7 @@
             v.innerHTML = arr[i];
             document.getElementById("start").disabled = true;
             document.getElementById("animation").disabled = true;
+            document.getElementById("stop").disabled = false;
         }
     }
 
