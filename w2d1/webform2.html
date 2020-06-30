@@ -19,10 +19,18 @@
         <li class="nav-item border-right"><a class="nav-link" href="#">MUM Golden Dome Market ::: SRM System</a></li>
         <li class="nav-item border-right"><a class="nav-link" href="#">Products</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Suppliers</a></li>
-
-        <li class="nav-item"><a class="nav-link" href="#">Hello!</a></li>
-        <li class="nav-item"><div class="d-flex justify-content-end"><button class="btn btn-secondary" type="submit" id="btnSignout">SignOut</button></div></li>
     </ul>
+    <div class="collapse navbar-collapse flex-grow-0 ml-auto" id="navbarSupportedContent">
+        <ul class="navbar-nav text-right">
+            <li class="nav-item active">
+                <a id = "hello" class="nav-link" href="#">Hello!</a>
+            </li>
+            <li>
+                <button class="btn btn-secondary" type="submit" id="btnSignout">SignOut</button>
+            </li>
+
+        </ul>
+    </div>
 </nav>
 
 <div class="container pt-5">
@@ -38,11 +46,33 @@
         </div>
         <div class="col-sm-6">
             <form>
-                <div class="form-group"><label>Quantity in stock</label><input class="form-control" type="number" name="txtqis" placeholder="0" pattern="[0-9]"></div>
-                <div class="form-group"><label>Supplier</label><select class="form-control"><option>Select a supplier</option><option>Walmart</option><option>Sony</option><option>Samsung</option></select></div>
-                <div class="form-group"><label>Date supplied</label><input class="form-control" type="date" name="txtds"></div>
-                <div class="form-group"><p class="text-muted">Enter a valid Date.</p></div>
-                <div class="form-group" id="buttongrps"><button class="btn btn-outline-dark">Reset</button> <button class="btn btn-outline-danger">Cancel</button> <button class="btn btn-outline-primary">Add Product</button> </div>
+                <div class="form-group">
+                    <label>Quantity in stock</label>
+                    <input class="form-control" type="number" name="txtqis" placeholder="0" pattern="[0-9]">
+                </div>
+
+                <div class="form-group">
+                    <label>Supplier</label>
+                    <select class="form-control">
+                        <option>Select a supplier</option>
+                        <option>Walmart</option>
+                        <option>Sony</option>
+                        <option>Samsung</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Date supplied</label>
+                    <input class="form-control" type="date" name="txtds">
+                </div>
+                <div class="form-group">
+                    <p class="text-muted">Enter a valid Date.</p>
+                </div>
+                <div class="form-group" id="buttongrps">
+                    <button class="btn btn-outline-dark">Reset</button>
+                    <button class="btn btn-outline-danger">Cancel</button>
+                    <button class="btn btn-outline-primary">Add Product</button>
+                </div>
             </form>
         </div>
     </div>
