@@ -3,7 +3,7 @@ window.onload = function () {
     document.getElementById('submit').onclick = function () {
         let username = document.getElementById('emailid').value;
         // regex = new RegExp("E00", "i");
-        let regex = /^([a-zA-Z0-9\._-]+)@([a-zA-Z0-9-]+).([a-z]{2,8})(.[a-z]{2,8})?$/;
+        let regex = /^([a-zA-Z0-9\._-]+)@([a-zA-Z0-9-]+).([a-z]{2,8})$/;
 
             if(regex.test(username)){
                 document.getElementById('blush1').innerHTML="Valid";
