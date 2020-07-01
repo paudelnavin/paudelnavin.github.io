@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hoisting & Closure</title>
+</head>
+<body>
+<h4>Question 1) solution:</h4>
+<p><b>NOTE:</b>Code written in a pair of curly braces (this is a pair of curly braces{ }) is considered a
+    block.
+    <br><br>
+    Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of
+    their scope before code execution. If variable is declared as "var" then it is assigned as undefined
+    and if varaible is declared as let and const then javascript will never define it as undefined.
+    Also function expression too assigned as undefined. But for function declarations it will assign a
+    function name as function.
+    <br><br>
+    <b>1)Ans)</b> document.write(x) = undefined<br>
+    document.write(a) = 8<br>
+    document.write(b) = 8<br>
+    document.write(b) = 9<br>
+    document.write(b) = 10<br>
+    document.write(x) = 1<br>
+    <br><br>
+    <b>Explanation:</b>
+    first during creation: hosting is done: i.e. a = undefined, b=undefined, c=undefined but if we use
+    let/const then javascript will never assign those variable as undefined.<br><br>
+
+    During execution: a=5, b=10, c=fn() and x=1<br><br>
+
+    After that c(8,9,10) is called and it will go inside function var c = function(a,b,c){}<br><br>
+
+    now again hoisting is done i.e. f=undefined, x=undefined and
+    value is assigned to a, b,c as a= 8, b=9, c=10 because it is sent through function<br><br>
+
+    document.write(x) = undefined<br><br>
+    document.write(a) = 8<br><br>
+
+    now function f(a,b,c) is called and will go inside function and again hoisting is done: x=undefined<br>
+    value is assigned to a, b,c as a= 8, b=9, c=10 because it is sent through function<br><br>
+    b=a i.e. b=8<br><br>
+    document.write(b) = 8<br><br>
+    b=c i.e. b=10<br><br>
+    x=5<br><br>
+
+    will go out of function and in closure outer function cannot access inside function variables but
+    inside function can access outer function varaible<br><br>
+    so here a= 8, b=9, c=10, x= undefined<br><br>
+    document.write(b) = 9<br><br>
+    x=10<br><br>
+
+    will go outside function and same as above for closure<br><br>
+    so a=5, b=10, x=1, c=fn()<br><br>
+    document.write(b) = 10<br><br>
+    document.write(x) = 1</p><br><br>
+
+<h4>Question 2) solution:</h4>
+<b>Global Scope:</b> There is only one Global scope throughout a JavaScript document. A variable is in the
+    Global scope if it’s defined outside of a function. We can also access and alter any variable declared in a
+    global scope from any other scope.<br><br>
+
+<b>Local Scope:</b> Variables declared within a function are in the local scope. Local scope is also called
+    function scope because local scope is created by functions in Javascript. Variables in the local scope
+    are only accessible within the function in which they are defined, i.e they are bound to their
+    respective functions each having different scopes. This allows us to create variables that have the
+    same name and can be used in different functions.<br><br>
+
+<h4>Question 3) solution:</h4>
+<b>Note:</b> when we declare global variable in javascript, we can access it from inside a function.
+    But if we create a variable inside the scope of the function with the same name as a globalVariable,
+    we lose access to the value of globalVariable inside the scope of the function. So below answer is
+    written with an assumption that inside function doesnot have same name of varaible as a global varaible
+    have.<br><br>
+
+    a)No<br><br>
+    b)Yes<br><br>
+    c)No<br><br>
+    d)Yes<br><br>
+    e)Yes<br><br>
+
+<h4>Question 4) solution:</h4>
+    81 and 25 respectively <br><br>
+
+<b>Explanation:</b>
+    First hositing will be done i.e. x=undefined<br><br>
+    now, execution will happen then x=9<br><br>
+    document.write(myFunction()) line will call myFunction() and go inside it and function will return 81<br><br>
+    After that x=5<br><br>
+    again, document.write(myFunction()) line will call myFunction() and go inside it and function will
+    return 25<br><br>
+
+
+<h4>Question 5) solution:</h4>
+    10<br><br>
+
+<b>Explanation</b><br><br>
+    first hoisting is done i.e. x=undefined<br><br>
+    after execuiton, x=1<br><br>
+    bar() function is called then again hoisting is done<br><br>
+    so x=undefined<br><br>
+    now !foo means it will return true for every "false" value i.e.(empty string, 0, null, false, undefined, NaN). Here x= undefined and will return true. So it will go isnide if fucntion and value of x is assigned as x=10<br><br>
+    then it will alert as 10<br><br>
+</body>
+</html>
