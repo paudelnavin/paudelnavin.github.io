@@ -22,8 +22,7 @@
         describe("sum", function () {
             it("takes numbers array, and returns sum",
                 function () {
-                    assert.equal("14", sum1 = ("This is a test", "Where it checks sum of array",
-                        "14"));
+                    assert.equal("14", [2, 4, 3, 5].reduce((sum, item) => sum + item, 0));
                 });
         });
 
@@ -31,8 +30,8 @@
         describe("reverse", function () {
             it("takes string, and returns reverse string",
                 function () {
-                    assert.equal("ratset gaj", reverseString = ("This is a test", "Where it checks sum of array",
-                        "ratset gaj"));
+                    assert.equal("ratset gaj", reverseString = ["jag testar"].map((newString) =>
+                        newString.split("").reverse().join("")));
                 });
         });
 
@@ -40,8 +39,8 @@
         describe("filter longest 'n' words ", function () {
             it("takes words array, and returns longest words greater than n (as per user required)",
                 function () {
-                    assert.equal("['bird','elephant']", longestWords = ("This is a test", "Where it checks sum of array",
-                        "['bird','elephant']"));
+                    assert.equal(['bird','elephant']k, ['cow','bird', 'as', 'elephant'].filter((words) =>
+                        words.length > 3).toString());
                 });
         });
 
