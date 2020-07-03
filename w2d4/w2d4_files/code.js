@@ -27,10 +27,15 @@ console.log([6, 4, 0, 3, -2, 1].bubbleSort());
 // teach which receives a string called subject, and returns:
 console.log(" \n Exercise 3: solution - using function constructor")
 
-function Person(name) {
+let Person = function() {};
+Person.prototype.initialize = function(name, age)
+{
     this.name = name;
-};
-const teacher = new Person("Michael Zijlstra");
+    this.age = age;
+}
+const teacher = new Person();
+teacher.name = "Michael Zijlstra";
+
 Person.prototype.teach = function (subject) {
     return this.name + " is now teaching" + subject;
 }
@@ -40,7 +45,10 @@ console.log(teacher.teach(" WAP"));
 console.log(" \n Exercise 3: solution - using Object Prototype Aproach")
 
 const person = function () {
-    return {name: "Paul"}
+    return {
+        name: "",
+        age: 0
+    }
 };
 const teach = Object.create(person());
 teach.name = "Michael Zijlstra";
@@ -49,76 +57,23 @@ teach.course = function (subject) {
 };
 console.log(teach.course("WAP"));
 
-//4a. Object prototype Aproach
-console.log(" \n Exercise 4a: solution - using Object Prototype Aproach")
 
-const Persons = {
-    name: "Unknown", age: 20, greeting: function () {
-        return "Geeetings: my name is" + this.name + "and I am " + name.age + "years Old"
-    },
-    salute: function () {
-        return "Good morning!, and in case I dont see you,good afternoon, good evening and good night!"
-    }
+//About student learning course
+console.log(" \n Exercise 3: solution - About student course")
+Person.prototype.describe = function()
+{
+    return this.name + ", " + this.age + " years old.";
 }
-const Student = Object.create(Persons);
-Student.major = "Unknown";
-Student.greeting = function () {
-    return "Hey my name is " + this.name + " and I am studying " + this.major
-};
-Student.name = "Navin Paudel";
-Student.major = "WAP";
-console.log(Student.greeting());
-const Professor = Object.create(Persons);
-Professor.department = "Unknown";
-Professor.salute = function () {
-    return "Good day Good day,\n" +
-        "my name is " + this.name + " and I am in the " + this.department + " department.";
+let Student = function() {};
+Student.prototype = new Person();
+Student.prototype.learn = function(subject)
+{
+    // console.log(this.name + " just learned " + subject);
+    return (this.name + " just learned " + subject);
 }
-
-Professor.name = "Michael Zijlstra";
-Professor.department = "Computer Science";
-console.log(Professor.salute());
-const professor = Object.create(Professor);
-const student = Object.create(Student);
-console.log(professor.salute());
-console.log(student.greeting());
-
-// 4b. function Constructor Aproach
-console.log(" \n Exercise 4b: solution - using function Constructor aproach")
-
-
-function Perrson(name, age) {
-    this.name = name;
-    this.age = age;
-}
-
-Perrson.prototype.greeting = function () {
-    return "Geeetings: my name is" + this.name + "and I am " + name.age + "years Old";
-}
-Perrson.prototype.salute = function () {
-    return "Good morning!, and in case I dont see you,good afternoon, good evening and good night!";
-}
-const Studet = new Perrson("Navin", 30);
-Studet.major = "WAP";
-Studet.greeting = function () {
-    return "Hey my name is " + this.name + " and I am studying " + this.major
-};
-console.log(Studet.greeting());
-const Profesor = new Perrson("Michael Zijlstra", 40);
-Profesor.department = "Computer Science";
-Profesor.salute = function () {
-    return "Good day Good day,\n" +
-        "my name is " + this.name + " and I am in the " + this.department + " department.";
-};
-console.log(Profesor.salute());
-const profesor = Object.create(Profesor);
-const studet = Object.create(Studet);
-console.log(studet.greeting());
-console.log(profesor.salute());
-
-
-
-
-
+var student = new Student();
+student.initialize("Navin", 30);
+console.log(student.describe());
+console.log(student.learn("WAP"));
 
 
