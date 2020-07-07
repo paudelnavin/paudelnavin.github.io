@@ -58,3 +58,49 @@ describe("Savings Account tests", function(){
         assert.equal("Saving Account 1: balance 105, Interest 5", account.toString());
     });
 });
+
+//withdraw from checking account
+describe("Checking Account tests", function(){
+    let account = new CheckingAccount(1, 100);
+    account.deposit(200);
+
+    it("throws eror when trying to withdraw amount that is greater than current balance plus overdraft.", function(){
+        assert.throw(()=>{account.withdraw(1000)}, Error, "Insufficient funds.");
+    });
+
+    acc.withdraw(300);
+    it("can withdraw amount that is less than current balance + overdraft", function(){
+        assert.equal(-100, account.getBalance());
+    });
+});
+
+describe("Bank Tests", function(){
+    it("adds a new Account to the accounts array", function(){
+        let bank = new Bank();
+        bank.addAccount();
+        assert.equal(1, bank.getAccounts().length);
+        assert.equal(1, bank.getAccounts()[0].getNumber()); // account number starts from 1
+
+        bank.addSavingsAccount(25);
+        assert.equal(2, bank.getAccounts().length);
+
+        bank.addCheckingAccount(100);
+        assert.equal(3, bank.getAccounts().length);
+    });
+
+    it("deletes an account from account array when called closeAccount()", function(){
+        let bank = new Bank();
+        bank.addAccount();
+        bank.addAccount();
+        bank.addAccount();
+
+        bank.getAccounts().forEach(account => {
+            console.log(account.getNumber());
+        });
+
+        assert.equal(3, bank.getAccounts().length);
+        assert.equal(2, bank.closeAccount(bank.getAccounts()[0].getNumber()));
+        assert.equal(2, bank.getAccounts().length);
+    });
+});
+
