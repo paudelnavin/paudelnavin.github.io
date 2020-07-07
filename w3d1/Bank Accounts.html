@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- saved from url=(0147)https://sakai.cs.miu.edu/access/content/attachment/78cb3f7a-6ef7-4011-a2e7-34fa4528eef3/Assignments/0a2ec4aa-7502-43f9-babc-d6e84aad11e2/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Bank Accounts</title>
+    
+
+    <link rel="stylesheet" href="Bank_Accounts_files/css/mocha.css">
+    <script src="Bank_Accounts_files/js/mocha.js"></script>
+    <script src="Bank_Accounts_files/js/chai.js"></script>
+    <script>
+        // initialize mocha
+        mocha.setup('bdd');
+        // chai has a lot of stuff, let's make assert global
+        let assert = chai.assert;
+    </script>
+
+    <script src="Bank_Accounts_files/js/account.js"></script><script data-dapp-detection="">
+(function() {
+  let alreadyInsertedMetaTag = false
+
+  function __insertDappDetected() {
+    if (!alreadyInsertedMetaTag) {
+      const meta = document.createElement('meta')
+      meta.name = 'dapp-detected'
+      document.head.appendChild(meta)
+      alreadyInsertedMetaTag = true
+    }
+  }
+
+  if (window.hasOwnProperty('web3')) {
+    // Note a closure can't be used for this var because some sites like
+    // www.wnyc.org do a second script execution via eval for some reason.
+    window.__disableDappDetectionInsertion = true
+    // Likely oldWeb3 is undefined and it has a property only because
+    // we defined it. Some sites like wnyc.org are evaling all scripts
+    // that exist again, so this is protection against multiple calls.
+    if (window.web3 === undefined) {
+      return
+    }
+    __insertDappDetected()
+  } else {
+    var oldWeb3 = window.web3
+    Object.defineProperty(window, 'web3', {
+      configurable: true,
+      set: function (val) {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        oldWeb3 = val
+      },
+      get: function () {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        return oldWeb3
+      }
+    })
+  }
+})()</script>
+    <script src="Bank_Accounts_files/js/savingsaccount.js"></script>
+    <script src="Bank_Accounts_files/js/checkingaccount.js"></script>
+    <script src="Bank_Accounts_files/js/bank.js"></script>
+    <script src="Bank_Accounts_files/js/test.js"></script>
+</head>
+
+<body>
+    <div id="mocha"><ul id="mocha-stats"><li class="progress"><canvas width="40" height="40"></canvas></li><li class="passes"><a href="javascript:void(0);">passes:</a> <em>0</em></li><li class="failures"><a href="javascript:void(0);">failures:</a> <em>0</em></li><li class="duration">duration: <em>0</em>s</li></ul><ul id="mocha-report"></ul></div>
+    <script>
+        mocha.run();
+    </script>
+</body></html>
