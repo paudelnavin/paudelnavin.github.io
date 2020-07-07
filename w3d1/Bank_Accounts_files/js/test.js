@@ -6,7 +6,7 @@ describe("get account number", function(){
 });
 
 describe("get balance", function(){
-    let account = new Account(1);
+    let account = new Account(2);
     it("retrieves the current balance", function(){
         assert.equal(0.0, account.getBalance());
     });
@@ -14,7 +14,7 @@ describe("get balance", function(){
 
 //Deposit
 describe("desposit in bank", function () {
-    let account = new Account(1);
+    let account = new Account(3);
     account.deposit(100);
     it("The function can change the balance, which add money into the account",
         function () {
@@ -24,7 +24,7 @@ describe("desposit in bank", function () {
 
 //Withdraw
 describe("withdraw from bank", function () {
-    let acc = new Account(23432);
+    let acc = new Account(4);
     acc.deposit(200);
     acc.withdraw(100);
     it("when withdraw is called with some amount, it decreases that amount from the current balance.", function(){
@@ -37,16 +37,16 @@ describe("withdraw from bank", function () {
 });
 
 describe("toString", function(){
-    let account = new Account(1);
+    let account = new Account(7);
     account.deposit(200);
     it("returns the string representation of the account", function(){
-        assert.equal("Account 1: balance 200", account.toString());
+        assert.equal("Account 7: balance 200", account.toString());
     });
 });
 
 //Add Interest
 describe("Savings Account tests", function(){
-    let account = new SavingsAccount(1, 5);
+    let account = new SavingsAccount(8, 5);
     account.deposit(100);
     account.addInterest();
 
@@ -55,13 +55,13 @@ describe("Savings Account tests", function(){
     });
 
     it("returns the toString representation of savings account ", function(){
-        assert.equal("Saving Account 1: balance 105, Interest 5", account.toString());
+        assert.equal("Saving Account 8: balance 105, Interest 5", account.toString());
     });
 });
 
 //withdraw from checking account
 describe("Checking Account tests", function(){
-    let account = new CheckingAccount(1, 100);
+    let account = new CheckingAccount(9, 100);
     account.deposit(200);
 
     it("throws eror when trying to withdraw amount that is greater than current balance plus overdraft.", function(){
@@ -99,8 +99,8 @@ describe("Bank Tests", function(){
         });
 
         assert.equal(3, bank.getAccounts().length);
-        assert.equal(0, bank.closeAccount(bank.getAccounts()[0].getNumber()));
-        assert.equal(0, bank.getAccounts().length);
+        assert.equal(2, bank.closeAccount(bank.getAccounts()[0].getNumber()));
+        assert.equal(2, bank.getAccounts().length);
     });
 
     it("creates an account report of all accounts in new line. ", function(){
@@ -109,7 +109,7 @@ describe("Bank Tests", function(){
         bank1.addCheckingAccount(100);
         bank1.addSavingsAccount(200);
 
-        assert.equal("Account 1: balance 0\nChecking Account 1: balance 0, Overdraft 100\nSaving Account 1: balance 0, Interest 200\n", bank1.accountReport());
+        assert.equal("Account 7: balance 0\nChecking Account 8: balance 0, Overdraft 100\nSaving Account 9: balance 0, Interest 200\n", bank1.accountReport());
     });
 });
 
@@ -124,7 +124,7 @@ describe("End of month test", function(){
         bank2.addCheckingAccount(100);
         bank2.getAccounts()[2].withdraw(50);
 
-        assert.equal("\nInterest added Savings Account: 1 balance: 125 interest: 25\nWarning, low balance CheckinAccount 1: balance: -50 overdraft limit: 100\n", bank2.endOfMonth());
+        assert.equal("\nInterest added Savings Account: 11 balance: 125 interest: 25\nWarning, low balance CheckinAccount 12: balance: -50 overdraft limit: 100\n", bank2.endOfMonth());
     });
 });
 
