@@ -25,7 +25,9 @@ class Bank {
     }
 
     closeAccount(number){
-        this._accounts.remove(number);
+        // this._accounts.remove(number);
+        this._accounts =  this._accounts.filter(acc => acc.getNumber() !== number);
+        return this._accounts.length;
     }
 
     getAccount(index){
@@ -36,9 +38,6 @@ class Bank {
     {
         return this._accounts.map(acc => acc.toString())
             .reduce((accum, currentStr) => accum + currentStr + "\n", "");
-        // for(let acc in this._accounts){
-        //     acc.toString();
-        // }
     }
     endOfMonth(){
         return  this._accounts.map(acc => acc.endOfMonth())

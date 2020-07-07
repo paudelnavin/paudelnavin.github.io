@@ -99,8 +99,8 @@ describe("Bank Tests", function(){
         });
 
         assert.equal(3, bank.getAccounts().length);
-        assert.equal(2, bank.closeAccount(bank.getAccounts()[0].getNumber()));
-        assert.equal(2, bank.getAccounts().length);
+        assert.equal(0, bank.closeAccount(bank.getAccounts()[0].getNumber()));
+        assert.equal(0, bank.getAccounts().length);
     });
 
     it("creates an account report of all accounts in new line. ", function(){
