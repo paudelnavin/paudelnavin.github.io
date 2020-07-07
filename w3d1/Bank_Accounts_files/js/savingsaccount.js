@@ -18,6 +18,11 @@ class SavingsAccount extends Account{
         this.deposit(this.getBalance() * this._interest/100);
     }
 
+    endOfMonth(){
+        this.addInterest();
+        return "Interest added Savings Account: " + this.getNumber() + " balance: " + this.getBalance() + " interest: " + this.getInterest();
+    }
+
     toString(){
         return "Saving Account " + this._number + ": balance " + this.getBalance() + ", Interest " + this._interest;
     }
