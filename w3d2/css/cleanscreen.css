@@ -1,0 +1,22 @@
+.container > div {
+    text-align: left;
+    font-size: 15px;
+
+}
+
+button{
+    text-align: center;
+    background-color: lightblue;
+    font-size: 15px;
+}
+
+.circle{
+    border-radius: 50%;
+    border: red solid 3px;
+    padding: 1px;
+    text-align: center;
+}
+
+.absolute{
+    position: absolute;
+}
