@@ -68,7 +68,7 @@ describe("Checking Account tests", function(){
         assert.throw(()=>{account.withdraw(1000)}, Error, "Insufficient funds.");
     });
 
-    acc.withdraw(300);
+    account.withdraw(300);
     it("can withdraw amount that is less than current balance + overdraft", function(){
         assert.equal(-100, account.getBalance());
     });
