@@ -11,7 +11,7 @@ $(document).ready(function(){
     $boundary.mouseenter(function() {
         lostMessage();
     });
-    
+
     $maze.mouseleave(function () {
         lostMessage();
     });
