@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/w4d4/Servlet/Servlet.iml" filepath="$PROJECT_DIR$/w4d4/Servlet/Servlet.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/lab.iml" filepath="$PROJECT_DIR$/.idea/lab.iml" />
     </modules>
   </component>
