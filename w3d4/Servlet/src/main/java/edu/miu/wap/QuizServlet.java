@@ -21,7 +21,7 @@ public class QuizServlet extends HttpServlet {
         out.print("<input type=number value="+i+">+<input type=number value="+j+">=<input type=number value="+sum+"><br><br>");
         out.print("<input type=number value="+k+">*<input type=number value="+l+">=<input type=number value="+mul+"><br><br>");
         out.print("<button>Submit</button>");
-        out.print("</body></html>");
+        out.print("</form></body></html>");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
