@@ -3,8 +3,6 @@
     <jsp-version>2.0</jsp-version>
     <short-name>TLD Learning</short-name>
 
-<!--    <tlib-version>1.0</tlib-version>-->
-<!--    <uri>/WEB-INF/navin.tld</uri>-->
     <tag>
         <description>Generates a label</description>
         <name>currentDateTime</name>
